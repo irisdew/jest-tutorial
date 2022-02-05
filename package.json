@@ -1,0 +1,22 @@
+{
+  "name": "jest-tutorial",
+  "version": "1.0.0",
+  "description": "jest tutorial by coding angma",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irisdew/jest-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irisdew/jest-tutorial/issues"
+  },
+  "homepage": "https://github.com/irisdew/jest-tutorial#readme",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
