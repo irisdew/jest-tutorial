@@ -35,8 +35,8 @@ const fn = {
   },
 };
 
-// test.only
-test.only("0 더하기 5는 5", () => {
+// test.skip
+test.skip("0 더하기 5는 5", () => {
   expect(fn.add(0, 5)).toBe(5);
 });
 
