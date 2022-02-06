@@ -3,7 +3,7 @@ const fn = require("./fn");
 let num = 10;
 
 // 각 테스트 직전에 실행
-beforeEach(() => {
+afterEach(() => {
   num = 0;
 });
 
