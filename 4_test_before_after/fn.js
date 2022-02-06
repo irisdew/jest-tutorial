@@ -1,3 +1,5 @@
+const { expect } = require("@jest/globals");
+
 const fn = {
   add: (num1, num2) => num1 + num2,
   connectUserDB: () => {
@@ -32,5 +34,10 @@ const fn = {
     });
   },
 };
+
+// test.only
+test.only("0 더하기 5는 5", () => {
+  expect(fn.add(0, 5)).toBe(5);
+});
 
 module.exports = fn;
