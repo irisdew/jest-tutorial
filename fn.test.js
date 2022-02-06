@@ -85,3 +85,12 @@ test("고객명단에 Mike가 있나?", () => {
   const customers = ["Mike", "John", "Amy"];
   expect(customers).toContain(user);
 });
+
+// toThrow
+test("에러나나요?", () => {
+  expect(() => fn.throwErr()).toThrow();
+});
+
+test("xx 에러나나요?", () => {
+  expect(() => fn.throwErr()).toThrow("oo");
+});

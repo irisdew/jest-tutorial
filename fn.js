@@ -5,6 +5,9 @@ const fn = {
     age,
     gender: undefined,
   }),
+  throwErr: () => {
+    throw new Error("xx");
+  },
 };
 
 module.exports = fn;
