@@ -20,3 +20,20 @@ test("서버 에러?", (done) => {
   }
   fn.throwErr(callback);
 });
+
+// Promise
+test("3초 후에 받아온 나이는 20", () => {
+  // Promise를 사용할 때는 return 필수!
+  return fn.getAge().then((age) => {
+    expect(age).toBe(20);
+  });
+});
+
+// resolves, rejects
+test("3초 후에 받아온 나이는 20 - resolves", () => {
+  return expect(fn.getAge()).resolves.toBe(20);
+});
+
+test("3초 후에 받아온 나이는 20 - rejects", () => {
+  return expect(fn.throwErrPromise()).rejects.toMatch("error");
+});
