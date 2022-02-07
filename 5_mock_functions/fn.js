@@ -1,6 +1,43 @@
-// user DB에 접근해서 user list를 select 해오는 작업이 필요
-// -> 작성해야할 코드가 많음
-// -> 외부 요인 (네트워크 환경, DB 상태 등)의 영향을 받음
-// 테스트를 하기 위해서는 : 동일한 코드는 동일한 결과를 내야함
+const fn = {
+  add: (num1, num2) => num1 + num2,
+  createUser: (name) => {
+    // 유저를 추가하는 함수가 필요한데, 테스트 할때마다 진짜로 유저가 추가된다면 곤란
+    // 그렇다고 테스트 끝날때마다 rollback 해주기는 귀찮
+    // => mocking module 사용!
+    console.log("실제로 사용자가 생성되었습니다");
+    return { name };
+  },
+  connectUserDB: () => {
+    return new Promise((res) => {
+      setTimeout(() => {
+        res({
+          name: "Mike",
+          age: 30,
+          gender: "male",
+        });
+      }, 500);
+    });
+  },
+  connectCarDB: () => {
+    return new Promise((res) => {
+      setTimeout(() => {
+        res({
+          brand: "bmw",
+          name: "z4",
+          color: "red",
+        });
+      }, 500);
+    });
+  },
+  disconnectDB: () => {
+    return new Promise((res) => {
+      setTimeout(() => {
+        setTimeout(() => {
+          res();
+        });
+      }, 500);
+    });
+  },
+};
 
-// mock function
+module.exports = fn;

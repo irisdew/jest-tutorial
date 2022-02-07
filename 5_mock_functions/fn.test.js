@@ -1,12 +1,7 @@
-// mock function
+const fn = require("./fn");
 
-const mockFn = jest.fn();
-
-// mockResolvedValue : 비동기 함수 흉내
-mockFn.mockResolvedValue({ name: "Mike" });
-
-test("받아온 이름은 Mike", () => {
-  mockFn().then((res) => {
-    expect(res.name).toBe("Mike");
-  });
+// test는 통과하지만 실제로 유저가 생성되어버림!
+test("유저를 만든다", () => {
+  const user = fn.createUser("Monika");
+  expect(user.name).toBe("Monika");
 });
