@@ -1,20 +1,28 @@
 // mock function
 
-const { expect } = require("@jest/globals");
-
 const mockFn = jest.fn((num) => num + 1);
-// jest.fn 의 첫번째 인수로 함수를 전달
 
-mockFn(10);
-mockFn(20);
-mockFn(30);
+// 매번 다른 값을 return 해주는 mock 함수
+mockFn
+  .mockReturnValueOnce(10)
+  .mockReturnValueOnce(20)
+  .mockReturnValueOnce(30)
+  .mockReturnValue(40);
 
-test("10에서 1 증가한 값이 반환된다.", () => {
-  expect(mockFn.mock.results[0].value).toBe(11);
-});
-test("20에서 1 증가한 값이 반환된다.", () => {
-  expect(mockFn.mock.results[1].value).toBe(21);
-});
-test("30에서 1 증가한 값이 반환된다.", () => {
-  expect(mockFn.mock.results[2].value).toBe(31);
+mockFn();
+mockFn();
+mockFn();
+mockFn();
+mockFn();
+
+test("dd", () => {
+  console.log(mockFn.mock.results);
+  // [
+  //   { type: "return", value: 10 },
+  //   { type: "return", value: 20 },
+  //   { type: "return", value: 30 },
+  //   { type: "return", value: 40 },
+  //   { type: "return", value: 40 },
+  // ];
+  expect("dd").toBe("dd");
 });
