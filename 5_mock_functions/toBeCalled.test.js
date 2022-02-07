@@ -16,7 +16,9 @@ test("3번 호출 되었나?", () => {
   expect(mockFn.mock.results.length).toBe(3);
 });
 test("10이랑 20을 전달받은 함수가 있는가?", () => {
-  expect(mockFn).toBeCalledWith(10, 20);
+  expect(mockFn).toBeCalledWith(30, 40);
+  // => 이것도 통과
+  // toBeCalledWith은 받은 인수를 검사하는 함수
 });
 test("마지막 함수는 30과 40을 받았나?", () => {
   expect(mockFn).lastCalledWith(30, 40);
