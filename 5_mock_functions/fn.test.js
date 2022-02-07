@@ -1,28 +1,22 @@
 // mock function
 
-const mockFn = jest.fn((num) => num + 1);
+const mockFn = jest.fn();
 
-// 매번 다른 값을 return 해주는 mock 함수
+// 홀수만 반환해주는 callback 함수가 필요함
+// 이 callback 함수를 짜기 귀찮다면? => mock function 사용
+// [1, 2, 3, 4, 5].filter((num) => callback(num));
+
 mockFn
-  .mockReturnValueOnce(10)
-  .mockReturnValueOnce(20)
-  .mockReturnValueOnce(30)
-  .mockReturnValue(40);
+  .mockReturnValueOnce(true)
+  .mockReturnValueOnce(false)
+  .mockReturnValueOnce(true)
+  .mockReturnValueOnce(false)
+  .mockReturnValue(true);
 
-mockFn();
-mockFn();
-mockFn();
-mockFn();
-mockFn();
+const result = [1, 2, 3, 4, 5].filter((num) => mockFn(num));
 
-test("dd", () => {
-  console.log(mockFn.mock.results);
-  // [
-  //   { type: "return", value: 10 },
-  //   { type: "return", value: 20 },
-  //   { type: "return", value: 30 },
-  //   { type: "return", value: 40 },
-  //   { type: "return", value: 40 },
-  // ];
-  expect("dd").toBe("dd");
+console.log(result);
+
+test("홀수는 1, 3, 5", () => {
+  expect(result).toStrictEqual([1, 3, 5]); // 배열을 확인할 때는 toBe가 아니라 toStrictEqual을 사용해야함
 });
