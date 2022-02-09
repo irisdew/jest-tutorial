@@ -76,7 +76,7 @@ Object {
     <div>
       <h1>
         Hello 
-        Mike
+        Tom
          
       </h1>
     </div>
@@ -84,7 +84,7 @@ Object {
   "container": <div>
     <h1>
       Hello 
-      Mike
+      Tom
        
     </h1>
   </div>,
