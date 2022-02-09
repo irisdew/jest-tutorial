@@ -11,7 +11,7 @@ const userWithoutName = {
 };
 
 test("Hello라는 글자가 포함?", () => {
-  render(<Hello />);
+  render(<Hello user={user} />);
   const helloEl = screen.getByText(/Hello/i);
   expect(helloEl).toBeInTheDocument();
 });
@@ -22,6 +22,6 @@ test("snapshot: name 있음", () => {
 });
 
 test("snapshot: name 없음", () => {
-  const el = render(<Hello user={userWithoutName} />);
+  const el = render(<Hello />);
   expect(el).toMatchSnapshot();
 });
